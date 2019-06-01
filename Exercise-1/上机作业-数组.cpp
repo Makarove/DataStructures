@@ -16,7 +16,7 @@ position End(LIST L)
 
 bool isEmpty(LIST L)
 {
-	return !L.data[1];     //Èç¹ûÔªËØ1²»Îª¿Õ£¬ÄÇÃ´·µ»Ø  !ÔªËØ1 
+	return !L.data[1];     //å¦‚æœå…ƒç´ 1ä¸ä¸ºç©ºï¼Œé‚£ä¹ˆè¿”å›  !å…ƒç´ 1 
 }
 
 void MakaNull(LIST &L)
@@ -37,7 +37,7 @@ void Insert(int data,position p, LIST &L)
 	else
 	{
 		for ( q = L.last; q>=p; q--)
-			L.data[q+1] = L.data[q];			//´Ó×îºóµ½q £¬ÔªËØÍùºóÒ»Î» 
+			L.data[q+1] = L.data[q];			//ä»æœ€ååˆ°q ï¼Œå…ƒç´ å¾€åä¸€ä½ 
 		L.last = L.last + 1;	
 		L.data[p] = data;
 	}
@@ -49,11 +49,11 @@ void Delete(position p, LIST &L)
 	L.last--;
 	for(q=p;q<=L.last;q++)
 	{
-		L.data[q] = L.data[q+1];   //lastºóÃæµÄ¶¼ÊÇ¿ÕÔªËØ 
+		L.data[q] = L.data[q+1];   //laståé¢çš„éƒ½æ˜¯ç©ºå…ƒç´  
 	}
 }
 
-position Locate(int x, LIST L)   //²»ÓÃ¶ÔÊµ²Î½øĞĞĞŞ¸Ä£¬ËùÒÔ²»ÓÃÒıÓÃ 
+position Locate(int x, LIST L)   //ä¸ç”¨å¯¹å®å‚è¿›è¡Œä¿®æ”¹ï¼Œæ‰€ä»¥ä¸ç”¨å¼•ç”¨ 
 {
 	position q;
 	for(q=1;q<=L.last;q++)
@@ -61,7 +61,7 @@ position Locate(int x, LIST L)   //²»ÓÃ¶ÔÊµ²Î½øĞĞĞŞ¸Ä£¬ËùÒÔ²»ÓÃÒıÓÃ
 		if(L.data[q] == x)
 			return q;
 	}
-	cout << " Êı×é²»´æÔÚ"<< endl;
+	cout << " æ•°ç»„ä¸å­˜åœ¨"<< endl;
 	return 0;
 }
 
@@ -93,7 +93,7 @@ position First(LIST L)
 		return 1;
 }
 
-int Retrieve(position p, LIST L)	//·µ»ØLÖĞÎ»ÖÃÎªPµÄÔªËØ 
+int Retrieve(position p, LIST L)	//è¿”å›Lä¸­ä½ç½®ä¸ºPçš„å…ƒç´  
 {
 	if(p<1||p>=L.last)
 	{
