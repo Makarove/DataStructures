@@ -5,7 +5,7 @@ struct polynode
 	double coef;
 	int exp;
 	polynode* link;
-} ;
+};
 typedef polynode* polypointer;
 
 int Compare(int i, int j)
@@ -17,11 +17,11 @@ int Compare(int i, int j)
 	else if( i == j) 
 		return '=';
 	else
-		cout << " ±È½Ï³ö´í" << endl;
+		cout << " æ¯”è¾ƒå‡ºé”™" << endl;
 		return 0;
 }
 
-polypointer Attach(int c, int e,polypointer d)  //½¨Á¢Ò»¸öĞÂ½áµã£¬ÏµÊıcoef=c,Ö¸Êıexp=e,°ÑËüÁ´½Óµ½dËùÖ¸½áµãÖ®ºó£¬²¢·µ»ØÒ»¸öĞÂ½áµãµÄÖ¸Õë¡£ 
+polypointer Attach(int c, int e,polypointer d)  //å»ºç«‹ä¸€ä¸ªæ–°ç»“ç‚¹ï¼Œç³»æ•°coef=c,æŒ‡æ•°exp=e,æŠŠå®ƒé“¾æ¥åˆ°dæ‰€æŒ‡ç»“ç‚¹ä¹‹åï¼Œå¹¶è¿”å›ä¸€ä¸ªæ–°ç»“ç‚¹çš„æŒ‡é’ˆã€‚ 
 {
 	polypointer x;
 	x = new polynode;
@@ -34,26 +34,26 @@ polypointer Attach(int c, int e,polypointer d)  //½¨Á¢Ò»¸öĞÂ½áµã£¬ÏµÊıcoef=c,Ö¸Ê
 polypointer CreatPoly()
 {
 	int c,e;
-	polypointer Poly_head = new polynode;			//´Ë´¦Ò»¶¨Òªnew£¡£¡£¡£¡ 
+	polypointer Poly_head = new polynode;			//æ­¤å¤„ä¸€å®šè¦newï¼ï¼ï¼ï¼ 
 	polypointer newPoly = new polynode;
 	newPoly = Poly_head;
-	cout << " Çë·Ö±ğÊäÈëÏµÊıºÍÖ¸Êı£¨ÊäÈë-1½áÊø£©£º" ;
+	cout << " è¯·åˆ†åˆ«è¾“å…¥ç³»æ•°å’ŒæŒ‡æ•°ï¼ˆè¾“å…¥-1ç»“æŸï¼‰ï¼š" ;
 	cin >> c >> e; 
 	while(c != -1)
 	{
 		newPoly = Attach(c, e, newPoly);
-		cout << " Çë·Ö±ğÊäÈëÏµÊıºÍÖ¸Êı£¨ÊäÈë-1½áÊø£©£º" ;
+		cout << " è¯·åˆ†åˆ«è¾“å…¥ç³»æ•°å’ŒæŒ‡æ•°ï¼ˆè¾“å…¥-1ç»“æŸï¼‰ï¼š" ;
 		cin >> c >> e;
 	}
 	newPoly->link = NULL;
 	newPoly = Poly_head;
 	Poly_head = Poly_head->link;
-	delete newPoly;				//ÇåÀíÁÙÊ±½áµã    Ö¸ÕëÔÚÕ»Àï   Êı¾İÔÚ¶ÑÀï 
-	newPoly = NULL;				//»ØÊÕÖ¸Õë
+	delete newPoly;				//æ¸…ç†ä¸´æ—¶ç»“ç‚¹    æŒ‡é’ˆåœ¨æ ˆé‡Œ   æ•°æ®åœ¨å †é‡Œ 
+	newPoly = NULL;				//å›æ”¶æŒ‡é’ˆ
 	return Poly_head;
 }
 
-void Print(polypointer p)		//´òÓ¡ 
+void Print(polypointer p)		//æ‰“å° 
 {
 	polypointer q;
 	q = p;
@@ -70,10 +70,10 @@ void Print(polypointer p)		//´òÓ¡
 		}
 	}
 	cout << endl;
-	q = NULL;					//ÇåÀíÁÙÊ±Ö¸Õë 
+	q = NULL;					//æ¸…ç†ä¸´æ—¶æŒ‡é’ˆ 
 }
 
-polypointer PolyAdd(polypointer a,polypointer b)	//°Ñ¶àÏîÊ½aºÍ¶àÏîÊ½bÏà¼Ó£¬½á¹ûÎª¶àÏîÊ½c¡£Ê¹ÓÃAttach()À´Ìí¼Ó½áµã 
+polypointer PolyAdd(polypointer a,polypointer b)	//æŠŠå¤šé¡¹å¼aå’Œå¤šé¡¹å¼bç›¸åŠ ï¼Œç»“æœä¸ºå¤šé¡¹å¼cã€‚ä½¿ç”¨Attach()æ¥æ·»åŠ ç»“ç‚¹ 
 {
 	polypointer p,q,d,c;
 	int x;
@@ -87,18 +87,18 @@ polypointer PolyAdd(polypointer a,polypointer b)	//°Ñ¶àÏîÊ½aºÍ¶àÏîÊ½bÏà¼Ó£¬½á¹ûÎ
 		{
 			case '=':
 				x = p->coef + q->coef;
-				if(x != 0)								//ÒòÎª¿ÉÄÜÓĞ¸ºÏµÊıµÄ´æÔÚ£¬ËùÒÔÏà¼ÓºóÒ²¿ÉÄÜÎªÁã 
-					d = Attach(x,p->exp,d);				//½«ĞÂ½áµã¼ÓÈë
+				if(x != 0)								//å› ä¸ºå¯èƒ½æœ‰è´Ÿç³»æ•°çš„å­˜åœ¨ï¼Œæ‰€ä»¥ç›¸åŠ åä¹Ÿå¯èƒ½ä¸ºé›¶ 
+					d = Attach(x,p->exp,d);				//å°†æ–°ç»“ç‚¹åŠ å…¥
 				p = p->link;
 				q = q->link;
 				break;
 			case '>':
-				d = Attach( p->coef, p->exp, d);		//¸´ÖÆpËùÖ¸½áµã²¢Á´ÈëcÖĞ
+				d = Attach( p->coef, p->exp, d);		//å¤åˆ¶pæ‰€æŒ‡ç»“ç‚¹å¹¶é“¾å…¥cä¸­
 				p = p->link;
 				break;
 			case '<':
-				d = Attach( q->coef, q->exp, d);		//¸´ÖÆqËùÖ¸½áµã²¢Á´ÈëcÖĞ 
-				q = q->link;							//qÇ°½øÒ»²½
+				d = Attach( q->coef, q->exp, d);		//å¤åˆ¶qæ‰€æŒ‡ç»“ç‚¹å¹¶é“¾å…¥cä¸­ 
+				q = q->link;							//qå‰è¿›ä¸€æ­¥
 				break; 
 			default:
 				cout << "ERROR" << endl;
@@ -106,31 +106,31 @@ polypointer PolyAdd(polypointer a,polypointer b)	//°Ñ¶àÏîÊ½aºÍ¶àÏîÊ½bÏà¼Ó£¬½á¹ûÎ
 	}
 	while( p!=NULL )
 	{
-		//cout << " ÎÒÔËĞĞÁË0x01" << endl;
+		//cout << " æˆ‘è¿è¡Œäº†0x01" << endl;
 		d = Attach( p->coef, p->exp, d);
 		p = p->link;
 	}
 	while( q!=NULL )
 	{
-		//cout << " ÎÒÔËĞĞÁË0x02" << endl;
+		//cout << " æˆ‘è¿è¡Œäº†0x02" << endl;
 		d = Attach( q->coef, q->exp, d);
 		q = q->link;
 	}
-	d->link = NULL;					//°Ñ×îºó½áµãÖ¸Ïò¿Õ 
-	p = c; c = c->link; delete p;	//É¾³ıÁÙÊ±½áµã
+	d->link = NULL;					//æŠŠæœ€åç»“ç‚¹æŒ‡å‘ç©º 
+	p = c; c = c->link; delete p;	//åˆ é™¤ä¸´æ—¶ç»“ç‚¹
 	return c; 
 }
 
 /*
-	Óöµ½µÄÒ»¸öÎÊÌâÊÇ£¬ÈçºÎ´¦ÀíĞÂ½¨µÄÍ·½áµã. 
+	é‡åˆ°çš„ä¸€ä¸ªé—®é¢˜æ˜¯ï¼Œå¦‚ä½•å¤„ç†æ–°å»ºçš„å¤´ç»“ç‚¹. 
 */
 polypointer PolyMul(polypointer a, polypointer b)
 {
 	polypointer aa,bb;
 	aa = a; bb = b;
 	polypointer newPoly = new polynode;
-	newPoly->coef=0;newPoly->exp=0;		//³õÊ¼»¯´æ·Å½á¹ûµÄÁ´±íµÄÍ·½áµã 
-	newPoly->link=NULL;					//Õâ¸ö³õÊ¼»¯Ò²ºÜÖØÒª 
+	newPoly->coef=0;newPoly->exp=0;		//åˆå§‹åŒ–å­˜æ”¾ç»“æœçš„é“¾è¡¨çš„å¤´ç»“ç‚¹ 
+	newPoly->link=NULL;					//è¿™ä¸ªåˆå§‹åŒ–ä¹Ÿå¾ˆé‡è¦ 
 	polypointer newPoly_head = newPoly;
 	polypointer temp = new polynode;
 	while( aa!=NULL )
