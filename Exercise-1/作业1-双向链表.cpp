@@ -3,8 +3,8 @@ using namespace std;
 typedef int Elementtype;
 
 /*	
-	ÊµÏÖË«ÏòÁ´±íµÄÐÍºÍÖ¸¶¨½áµãµÄ½»»» 
-	ÓÐÍ·½áµãµÄË«ÏòÁ´±í 
+	å®žçŽ°åŒå‘é“¾è¡¨çš„åž‹å’ŒæŒ‡å®šç»“ç‚¹çš„äº¤æ¢ 
+	æœ‰å¤´ç»“ç‚¹çš„åŒå‘é“¾è¡¨ 
 */
 struct celltype{
 	Elementtype element;
@@ -14,7 +14,7 @@ struct celltype{
 typedef celltype* position;
 typedef celltype* DLIST;
 
-position End(DLIST H)					//·µ»ØÁ´±í×îºóÒ»¸öÔªËØµÄÎ»ÖÃ 
+position End(DLIST H)					//è¿”å›žé“¾è¡¨æœ€åŽä¸€ä¸ªå…ƒç´ çš„ä½ç½® 
 {
 	position q;
 	q = H;
@@ -36,7 +36,7 @@ position First(DLIST H)
 	return first;
 } 
 
-void InitDlist(DLIST &H)			//³õÊ¼»¯Ò»¸öÁ´±í 
+void InitDlist(DLIST &H)			//åˆå§‹åŒ–ä¸€ä¸ªé“¾è¡¨ 
 {
 	position temp;
 	temp = First(H);
@@ -45,7 +45,7 @@ void InitDlist(DLIST &H)			//³õÊ¼»¯Ò»¸öÁ´±í
 	temp -> next = NULL;
 }
 
-void Insert(Elementtype x, position p)	//ÔÚÎ»ÖÃpºóÌí¼ÓÒ»¸ö½áµã 
+void Insert(Elementtype x, position p)	//åœ¨ä½ç½®påŽæ·»åŠ ä¸€ä¸ªç»“ç‚¹ 
 {
 	position temp = new celltype;
 	temp -> previous = p;
@@ -74,10 +74,10 @@ void Print(DLIST H)
 {
 	if(H->next == NULL)
 	{
-		cout << " ¿ÕÁ´±í" << endl;
+		cout << " ç©ºé“¾è¡¨" << endl;
 		return;
 	}
-	//H = H->next;						//Ìø¹ý±íÍ·½áµã 
+	//H = H->next;						//è·³è¿‡è¡¨å¤´ç»“ç‚¹ 
 	while(H->next!=NULL)
 	{
 		 cout << H->next->element << " ";
@@ -91,10 +91,10 @@ int Swap(Elementtype x, DLIST &H)
 {
 	position temp = new celltype;
 	position H_head = new celltype;
-	temp = H;								//tempÖ¸ÏòÍ·½áµã 
+	temp = H;								//tempæŒ‡å‘å¤´ç»“ç‚¹ 
 	while(temp->next != NULL )
 	{
-		if(temp->next->element == x)		//ÕÒµ½µÚÒ»¸öÔªËØÎªxµÄ½áµã£¬ÍË³öÑ­»· 
+		if(temp->next->element == x)		//æ‰¾åˆ°ç¬¬ä¸€ä¸ªå…ƒç´ ä¸ºxçš„ç»“ç‚¹ï¼Œé€€å‡ºå¾ªçŽ¯ 
 		{
 			break;
 		}
@@ -103,10 +103,10 @@ int Swap(Elementtype x, DLIST &H)
 			temp = temp->next;
 		}
 	}
-	if(temp->next==NULL)					//ÓÐÁ½ÖÖ¿ÉÄÜÍË³öÑ­»·£¬Ò»ÖÖÊÇÕÒµ½ÔªËØxµÄ½áµã£¬Ò»ÖÖÊÇÎ´ÕÒµ½£¬ÏÂÒ»¸öÎª¿Õ¡£ 
+	if(temp->next==NULL)					//æœ‰ä¸¤ç§å¯èƒ½é€€å‡ºå¾ªçŽ¯ï¼Œä¸€ç§æ˜¯æ‰¾åˆ°å…ƒç´ xçš„ç»“ç‚¹ï¼Œä¸€ç§æ˜¯æœªæ‰¾åˆ°ï¼Œä¸‹ä¸€ä¸ªä¸ºç©ºã€‚ 
 		return 0;
 	temp = temp->next;
-	position before = temp->previous;		//tempÇ°Ò»¸ö±»½»»»µ½ºóÃæµÄ½áµãµÄÖ¸Õëbefore 
+	position before = temp->previous;		//tempå‰ä¸€ä¸ªè¢«äº¤æ¢åˆ°åŽé¢çš„ç»“ç‚¹çš„æŒ‡é’ˆbefore 
 	position after = temp->next;			
 	temp->previous = before->previous;
 	temp->next = before;
@@ -130,12 +130,12 @@ int main()
 	//cout << list1->element;
 	Print(list1);
 	int x;
-	cout << " ÇëÊäÈëÄãÒªÑ°ÕÒµÄÔªËØ:";			//Éè¶¨ÓÃ»§½»»¥½çÃæ 
+	cout << " è¯·è¾“å…¥ä½ è¦å¯»æ‰¾çš„å…ƒç´ :";			//è®¾å®šç”¨æˆ·äº¤äº’ç•Œé¢ 
 	cin >> x;  
 	if(Swap(x,list1))
 		Print(list1);		
 	else
-		cout << " Î´ÕÒµ½" << endl;
+		cout << " æœªæ‰¾åˆ°" << endl;
 
 }
 
